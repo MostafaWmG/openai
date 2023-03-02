@@ -53,6 +53,9 @@ public partial class OpenAIService : IOpenAIService
 
     public IModelService Models => this;
     public ICompletionService Completions => this;
+
+    public IChatCompletionService ChatCompletions => this;
+
     public IEmbeddingService Embeddings => this;
     public IFileService Files => this;
     public IFineTuneService FineTunes => this;

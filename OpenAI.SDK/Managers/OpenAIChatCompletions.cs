@@ -13,7 +13,7 @@ public partial class OpenAIService : IChatCompletionService
     public async Task<ChatCompletionCreateResponse> CreateCompletion(ChatCompletionCreateRequest createCompletionRequest, string? modelId = null, CancellationToken cancellationToken = default)
     {
         createCompletionRequest.ProcessModelId(modelId, _defaultModelId);
-        return await _httpClient.PostAndReadAsAsync<ChatCompletionCreateResponse>(_endpointProvider.CompletionCreate(), createCompletionRequest, cancellationToken);
+        return await _httpClient.PostAndReadAsAsync<ChatCompletionCreateResponse>(_endpointProvider.ChatCompletionCreate(), createCompletionRequest, cancellationToken);
     }
 
     /// <inheritdoc />
@@ -25,7 +25,7 @@ public partial class OpenAIService : IChatCompletionService
         // Send the request to the CompletionCreate endpoint
         createCompletionRequest.ProcessModelId(modelId, _defaultModelId);
 
-        using var response = _httpClient.PostAsStreamAsync(_endpointProvider.CompletionCreate(), createCompletionRequest, cancellationToken);
+        using var response = _httpClient.PostAsStreamAsync(_endpointProvider.ChatCompletionCreate(), createCompletionRequest, cancellationToken);
         await using var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
         using var reader = new StreamReader(stream);
         // Continuously read the stream until the end of it

@@ -12,7 +12,7 @@ namespace OpenAI.GPT3.ObjectModels.RequestModels;
 public record ChatCompletionCreateRequest : IModelValidate, IOpenAiModels.ITemperature, IOpenAiModels.IModel, IOpenAiModels.IUser
 {
     [JsonPropertyName("messages")]
-    public IList<Roles> Messages { get; set; }
+    public IList<ChatMessage> Messages { get; set; }
 
     /// <summary>
     ///     The maximum number of <a href="https://platform.openai.com/tokenizer">tokens</a> to generate in the completion.

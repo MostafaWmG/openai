@@ -4,7 +4,12 @@ namespace OpenAI.GPT3.ObjectModels.SharedModels;
 
 public record ChatMessage
 {
-    [JsonPropertyName("role")] public Roles? Role { get; set; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
 
-    [JsonPropertyName("content")] public string? Content { get; set; }
+    [JsonPropertyName("role")]
+    public string? Role { get; set; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    [JsonPropertyName("content")]
+    public string? Content { get; set; }
 }

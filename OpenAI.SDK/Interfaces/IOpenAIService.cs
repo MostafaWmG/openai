@@ -16,6 +16,12 @@ public interface IOpenAIService
     public ICompletionService Completions { get; }
 
     /// <summary>
+    ///     Given a message array, the model will return one or more predicted completions, and can also return the probabilities of
+    ///     alternative tokens at each position.
+    /// </summary>
+    public IChatCompletionService ChatCompletions { get; }
+
+    /// <summary>
     ///     Creates an embedding vector representing the input text.
     /// </summary>
     public IEmbeddingService Embeddings { get; }

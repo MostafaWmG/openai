@@ -35,6 +35,11 @@ internal class AzureOpenAiEndpointProvider : IOpenAiEndpointProvider
         return $"{Prefix}/completions{QueryString}";
     }
 
+    public string ChatCompletionCreate()
+    {
+        return $"{Prefix}/chat/completions{QueryString}";
+    }
+
     public string EditCreate()
     {
         return $"{Prefix}/edits{QueryString}";

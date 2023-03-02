@@ -4,6 +4,9 @@ internal interface IOpenAiEndpointProvider
 {
     string ModelRetrieve(string model);
     string CompletionCreate();
+
+    string ChatCompletionCreate();
+
     string EditCreate();
     string ModelsList();
     string FilesList();
